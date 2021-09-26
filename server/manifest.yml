@@ -1,11 +1,11 @@
   applications:
   - name: djangoapp
     routes:
-      - route: devaina21.us-south.cf.appdomain.cloud
+      - route: manhtd96.us-south.cf.appdomain.cloud
     memory: 128M
     buildpack: python_buildpack
   - name: djangoapp-nginx
     routes:
-      - route: devaina21.us-south.cf.appdomain.cloud/static
+      - route: manhtd96.us-south.cf.appdomain.cloud/static
     memory: 128M
     buildpack: staticfile_buildpack
