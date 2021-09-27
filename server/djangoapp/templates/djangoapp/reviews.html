@@ -2,8 +2,7 @@
 {% extends 'djangoapp/layout.html' %} {% block head %} {% endblock %} {% block content %} {% if reviews %}
 <h1 class="skeleton-heading">Reviews for {{ dealer_name }}</h1>{% else %}
 <h5>There is no reviews for {{ dealer_name }} yet, but you can be the first reviewer</h5>{% endif %} {% if user.is_authenticated %}
-<a href="{% url 'djangoapp:add_review' dealer_id dealer_name %}" class="btn bg-orange text-white my-auto ml-auto"><i
-        class="fas fa-pencil-alt"></i> Write a review</a> {% else %}
+<a href="{% url 'djangoapp:add_review' dealer_id dealer_name %}" ><i class="fa fa-pencil"></i> Write a review</a> {% else %}
 <p class="lead">Please login to write a review.</p>{% endif %} {% if reviews %}
 <div class="row">
     {% for review in reviews %}
@@ -14,13 +13,13 @@
                 <div class="row">
                     <div class="col-3 text-left">
                         {% if review.sentiment == "positive" %}
-                        <figure class="card-img" alt="Positive"><i class="far fa-3x text-success fa-grin"></i></figure>
+                        <figure class="card-img" alt="Positive"><i class="fa fa-3x text-success fa-smile-o"></i></figure>
                         {% elif review.sentiment == "negative" %}
-                        <figure class="card-img" alt="Positive"><i class="far fa-3x text-danger fa-frown"></i></figure>
+                        <figure class="card-img" alt="Positive"><i class="fa fa-3x text-danger fa-frown-o"></i></figure>
                         {% elif review.sentiment == "neutral" %}
-                        <figure class="card-img" alt="Positive"><i class="far fa-3x text-warning fa-meh"></i></figure>
+                        <figure class="card-img" alt="Positive"><i class="fa fa-3x text-warning fa-meh-o"></i></figure>
                         {% else %}
-                        <figure class="card-img" alt="Positive"><i class="far fa-3x text-warning fa-meh"></i></figure>
+                        <figure class="card-img" alt="Positive"><i class="fa fa-3x text-warning fa-meh-o"></i></figure>
                         {% endif %}
                     </div>
                     <div class="col-9 text-right">
