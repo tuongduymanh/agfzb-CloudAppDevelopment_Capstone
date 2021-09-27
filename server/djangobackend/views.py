@@ -7,8 +7,8 @@ from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
-from .restapis import *
-from .models import CarModel
+from server.djangoapp.restapis import *
+from server.djangoapp.models import CarModel
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
@@ -117,7 +117,7 @@ def add_dealer_review(request, dealer_id, dealer_name):
             review["car_year"] = car.year
         json_result = add_dealer_review_to_db(review)
         add_review_view = redirect(
-            'djangoapp:dealer_reviews', dealer_id=dealer_id, dealer_name=dealer_name)
+            'djangoapp:dealer_reviews', dealer_id=dealer_id, dealer_name=dealer_name , cars = None)
     return add_review_view
 
 def get_dealer_reviews(request, dealer_id, dealer_name):
