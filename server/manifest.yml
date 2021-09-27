@@ -1,11 +1,11 @@
   applications:
-  - name: djangoapp
+  - name: edxcourses
     routes:
-      - route: manhtd96.us-south.cf.appdomain.cloud
+      - route: edxcourses.eu-gb.mybluemix.net
     memory: 128M
     buildpack: python_buildpack
-  - name: djangoapp-nginx
+  - name: edxcourses-nginx
     routes:
-      - route: manhtd96.us-south.cf.appdomain.cloud/static
+      - route: edxcourses.eu-gb.mybluemix.net/static
     memory: 128M
     buildpack: staticfile_buildpack

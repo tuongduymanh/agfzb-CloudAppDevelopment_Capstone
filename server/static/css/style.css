@@ -1,0 +1,254 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+a,
+a:focus,
+a:not(.nohover):hover {
+    color: white;
+}
+
+a.bg-orange,
+a.bg-orange:hover {
+    background: #ff9100;
+    font-weight: 500;
+    font-size: 1em !important;
+}
+
+.no-underline,
+#user-logout-dropdown {
+    border-bottom: none;
+    text-decoration: none !important
+}
+
+html,
+body {
+    height: 100vh;
+    background-color: #333;
+    overflow-x: hidden;
+    font-family: Ubuntu, sans-serif;
+    font-size: 1.125em;
+}
+
+body {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-pack: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: #fff;
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+    font-weight: 700;
+}
+
+.skeleton-container {
+    width: 80vw;
+}
+
+.skeleton-header {
+    margin-bottom: 2rem;
+}
+
+.nav-link {
+    padding: 0.25 rem 0.5rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, .5);
+    background-color: transparent;
+    border-bottom: .25rem solid transparent;
+    font-size: 1.125em;
+}
+
+.nav-skeleton-header .nav-link:hover,
+.nav-skeleton-header .nav-link:focus,
+.nav-skeleton-footer .nav-link:hover,
+.nav-skeleton-footer .nav-link:focus {
+    border-bottom-color: rgba(255, 255, 255, .25);
+}
+
+.nav-skeleton-header .nav-link+.nav-link,
+.nav-skeleton-footer .nav-link+.nav-link {
+    margin-left: 1rem;
+}
+
+.nav-skeleton-header .active,
+.nav-skeleton-footer .active {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+.dropdown-menu {
+    width: 300px !important;
+    left: -150px;
+    top: -14px;
+    padding: 14px;
+}
+
+.dropdown-menu>form>input {
+    margin-bottom: 14px;
+}
+
+body>div>header>div>nav>div>div>form>label {
+    font-weight: 300;
+    font-style: italic;
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+
+@media (min-width: 48em) {
+    .skeleton-container {
+        width: 100vw;
+    }
+    .skeleton-header-brand {
+        float: left;
+    }
+    .nav-skeleton-header {
+        float: right;
+    }
+}
+
+.skeleton {
+    padding: 0 1.5rem;
+}
+
+.skeleton .btn-lg {
+    padding: .75rem 1.25rem;
+    font-weight: 700;
+}
+
+.bg-orange {
+    background-color: #ff9100;
+}
+
+.text-orange {
+    color: #ff9100;
+}
+
+.skeleton-header-brand {
+    margin-bottom: 0;
+}
+
+.form-control.bootstrap-table-filter-control-state {
+    background-color: #343a40 !important;
+    color: white !important;
+}
+
+.skeleton-footer {
+    color: rgba(255, 255, 255, .5);
+}
+
+
+/* The Overlay (background) */
+
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 100%;
+    width: 0;
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    /* Black fallback color */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black w/opacity */
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+
+/* Position the content inside the overlay */
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    /* 25% from the top */
+    width: 100%;
+    /* 100% width */
+    text-align: center;
+    /* Centered text/links */
+    margin-top: 30px;
+    /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+
+/* The navigation links inside the overlay */
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 2em;
+    color: #818181;
+    display: block;
+    /* Display block instead of inline */
+    transition: 0.3s;
+    /* Transition effects on hover (color) */
+}
+
+
+/* When you mouse over the navigation links, change their color */
+
+.overlay a:hover,
+.overlay a:focus {
+    color: #f1f1f1;
+}
+
+#mobileLogin {
+    transition: none !important;
+    will-change: unset !important;
+    width: 360px !important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto
+}
+
+#mobileLogout {
+    width: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto
+}
+
+#desktopLogin {
+    transition: none !important;
+    will-change: unset !important;
+    width: 360px !important;
+    position: absolute;
+    margin-right: 34px;
+    margin-top: -5px;
+}
+
+#desktopLogout {
+    width: auto;
+    position: absolute;
+    margin-right: 10px;
+    margin-top: -5px;
+}
+
+
+/* Position the close button (top right corner) */
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+
+@media screen and (max-height: 450px) {
+    .overlay a {
+        font-size: 20px
+    }
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}

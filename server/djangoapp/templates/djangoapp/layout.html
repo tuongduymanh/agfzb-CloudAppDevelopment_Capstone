@@ -1,0 +1,102 @@
+<!--skeleton-->
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dealership Review</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.css" rel="stylesheet">
+<!--    <link href="{% static 'fontawesome_free/css/all.min.css' %}" rel="stylesheet" type="text/css">-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css" type="text/css">
+<!--    <link rel="stylesheet" href="{{ MEDIA_URL }}css/style.css">-->
+    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.18.2/dist/extensions/filter-control/bootstrap-table-filter-control.min.js">
+    </script>
+<!--    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>-->
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
+    </script>
+</head>
+
+<body class="text-center">
+    <div class="skeleton-container d-flex h-100 p-3 mx-auto flex-column">
+        <header class="skeleton-header mb-centered">
+            <div class="inner">
+                <a class="skeleton-header-brand no-underline" href="{% url 'djangoapp:index' %}">
+                    <div class="d-inline">
+                        <i class="fas fa-car fa-3x text-orange"></i><i class="fas fa-car fa-2x text-orange"></i><i class="fas fa-car fa-1x text-orange"></i>
+                    </div>
+                    <h4 class="text-orange">Best Cars</h4>
+                </a>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                  <a class="navbar-brand" href="{% url 'djangoapp:index' %}"></a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'djangoapp:index' %}">Dealership Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'djangoapp:about' %}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'djangoapp:contact' %}">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                <li>
+                    <a class="btn btn-link" href="#">{{ user.first_name }}({{ user.username }})</a>
+                    <a class="btn btn-link" href="{% url 'djangoapp:logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <form class="form-inline" action="{% url 'djangoapp:login' %}" method="post">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Username" name="username" >
+                            <input type="password" class="form-control" placeholder="Password" name="password" >
+                            <button class="btn btn-primary" type="submit">Login</button>
+                            <a class="btn btn-link" href="{% url 'djangoapp:registration' %}">Sign Up</a>
+                        </div>
+                    </form>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+        </header>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <p class="text-danger flex text-center">{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <main role="main" class="row justify-content-center">
+
+            <div class="main col-lg-9 col-md-12">{% block content %} {% endblock %}</div>
+        </main>
+
+        <footer class="skeleton-footer mt-auto">
+            <nav class="nav nav-skeleton-footer justify-content-center d-none d-lg-flex">
+                {% url 'djangoapp:index' as url %}
+                <a class="nav-link {% if request.path == url %}active{% endif %}" href="{{ url }}">Reviews</a> {% url 'djangoapp:about' as url %}
+                <a class="nav-link {% if request.path == url %}active{% endif %}" href="{{ url }}">About Us</a> {% url 'djangoapp:contact' as url %}
+                <a class="nav-link {% if request.path == url %}active{% endif %}" href="{{ url }}">Contact</a>
+            </nav>
+        </footer>
+    </div>
+</body>
+
+</html>
